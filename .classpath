@@ -7,5 +7,7 @@
 	</classpathentry>
 	<classpathentry kind="src" path="hotel_rota_116/src"/>
 	<classpathentry kind="lib" path="C:/Users/walla/Documents/Estudos/java projeto alura/mysql-connector-java-8.0.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/walla/Downloads/c3p0-JARs/c3p0-0.9.5.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/walla/Downloads/c3p0-JARs/mchange-commons-java-0.2.16.jar"/>
 	<classpathentry kind="output" path="hotel_rota_116/bin"/>
 </classpath>

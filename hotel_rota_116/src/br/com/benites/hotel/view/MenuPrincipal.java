@@ -51,6 +51,7 @@ public class MenuPrincipal extends JFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frmHotelAlura = new JFrame();
 		frmHotelAlura.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		frmHotelAlura.setResizable(false);

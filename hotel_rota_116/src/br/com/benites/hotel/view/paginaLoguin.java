@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -11,10 +12,14 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+
+import br.com.benites.hotel.dao.ValidacaoDeLoguin;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class paginaLoguin extends JFrame {
@@ -100,7 +105,7 @@ public class paginaLoguin extends JFrame {
 		Border border_textField = BorderFactory.createMatteBorder(0, 0, 3, 0, SystemColor.textHighlight);
 		textField.setBorder(border_textField);
 		frmHotelAlura.getContentPane().add(textField);
-		textField.setColumns(10);
+//		textField.setColumns(10);
 		
 		
 		passwordField = new JPasswordField();
@@ -110,11 +115,32 @@ public class paginaLoguin extends JFrame {
 		Border border_passwordField = BorderFactory.createMatteBorder(0, 0, 3, 0, SystemColor.textHighlight);
 		passwordField.setBorder(border_passwordField);
 		frmHotelAlura.getContentPane().add(passwordField);
-		passwordField.setColumns(10);
+//		passwordField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("ENTRAR");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
+				ValidacaoDeLoguin boravalidar = new ValidacaoDeLoguin();
+				
+				boolean resiltadoDeBoravalidar = false;
+				try {
+					resiltadoDeBoravalidar = (boolean) boravalidar.validaSenha(textField.getText(), new String(passwordField.getPassword()));
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				if(resiltadoDeBoravalidar) {
+					frmHotelAlura.dispose();
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Usuario ou senha incorretos");
+				}
+				
+				
+			
+				
 			}
 		});
 		btnNewButton.setFocusPainted(false);
