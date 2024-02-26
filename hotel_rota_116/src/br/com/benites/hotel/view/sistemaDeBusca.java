@@ -16,21 +16,30 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+
 import java.awt.Toolkit;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import br.com.benites.hotel.dao.processaMostraTabela;
+import br.com.benites.hotel.dao.processaMostraTabelaPesquisandoNumeroDeReserva;
+import br.com.benites.hotel.dao.processaMostraTabelaPesquisandoSobrenome;
 
 public class sistemaDeBusca extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JFrame frmHotelAlura;
 	private JTextField textField;
-	
+	private processaMostraTabelaPesquisandoSobrenome pesquisasomente_sobrenome = null;
+	private processaMostraTabelaPesquisandoNumeroDeReserva pesquisasomente_numero_de_reserva = null;
+	private JTable CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_SOBRENOME = null;
+	private JTable CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_NUMERO = null;
+	private JTable CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_SOBRENOME = null;
+	private JTable CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_NUMERO = null;
+	private JScrollPane scrollPane;
+	private JScrollPane scrollPane_1;
+
 	public sistemaDeBusca(int id_logado) throws SQLException {
-
-
-
 
 		frmHotelAlura = new JFrame();
 		frmHotelAlura.setResizable(false);
@@ -92,7 +101,53 @@ public class sistemaDeBusca extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				System.out.println("TESTANDO TEXFILED" + textField.getText());
 
+				try {
+					pesquisasomente_sobrenome = new processaMostraTabelaPesquisandoSobrenome();
+					CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_SOBRENOME = pesquisasomente_sobrenome
+							.mostraTabelaPesquisada1(textField.getText());
+					CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_SOBRENOME = pesquisasomente_sobrenome
+							.mostraTabelaPesquisada2(textField.getText());
+
+					pesquisasomente_numero_de_reserva = new processaMostraTabelaPesquisandoNumeroDeReserva();
+					CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_NUMERO = pesquisasomente_numero_de_reserva
+							.mostraTabelaPesquisada1(textField.getText());
+					CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_NUMERO = pesquisasomente_numero_de_reserva
+							.mostraTabelaPesquisada2(textField.getText());
+
+					if (textField.getText().isEmpty()) {
+
+						processaMostraTabela tabelaReservas66 = new processaMostraTabela();
+						scrollPane.setViewportView(tabelaReservas66.mostraTabela());
+
+						processaMostraTabela tabelaReservas67 = new processaMostraTabela();
+
+						scrollPane_1.setViewportView(tabelaReservas67.mostraTabela2());
+
+					} else {
+
+						try {
+							int numeroInteiro_id_reserva = Integer.parseInt(textField.getText());
+
+							scrollPane.setViewportView(CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_NUMERO);
+							scrollPane_1.setViewportView(CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_NUMERO);
+
+							System.out.println("é numero " + numeroInteiro_id_reserva);
+
+						} catch (NumberFormatException x) {
+							scrollPane.setViewportView(CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_SOBRENOME);
+							scrollPane_1.setViewportView(CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_SOBRENOME);
+						}
+
+					}
+
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				// pesquisasomente_sobrenome.mostraTabelaPesquisada1();
 
 			}
 		});
@@ -131,30 +186,18 @@ public class sistemaDeBusca extends JFrame {
 		tabbedPane.addTab("RESERVAS", null, panel, null);
 		panel.setLayout(null);
 
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 962, 246);
 		panel.add(scrollPane);
-
-		
-		processaMostraTabela tabelaReservas66 = new processaMostraTabela();
-		scrollPane.setViewportView(tabelaReservas66.mostraTabela());
 
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("HÓSPEDES", null, panel_1, null);
 		panel_1.setLayout(null);
 
-		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(0, 0, 962, 246);
 		panel_1.add(scrollPane_1);
-		
-
-		
-		processaMostraTabela tabelaReservas67 = new processaMostraTabela();
-		
-		scrollPane_1.setViewportView(tabelaReservas67.mostraTabela2());
 
 	}
-
-
 
 }

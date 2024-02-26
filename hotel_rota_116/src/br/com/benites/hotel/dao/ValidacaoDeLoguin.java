@@ -21,10 +21,9 @@ public class ValidacaoDeLoguin extends JFrame {
 		ConnectionFactory conexao = new ConnectionFactory();
 		Connection con = conexao.recupConexao();
 
-		try (PreparedStatement stm = con
-				.prepareStatement("SELECT ID_USUARIO, NOME_USUARIO, SENHA, ID_CATEGORIA FROM USUARIO");
-
-		) {
+		try (
+				PreparedStatement stm = con.prepareStatement("SELECT ID_USUARIO, NOME_USUARIO, SENHA, ID_CATEGORIA FROM USUARIO");
+				) {
 			stm.execute();
 
 			ResultSet rst = stm.getResultSet();
