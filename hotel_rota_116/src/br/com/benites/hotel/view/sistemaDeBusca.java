@@ -197,6 +197,12 @@ public class sistemaDeBusca extends JFrame {
 		scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(0, 0, 962, 246);
 		panel_1.add(scrollPane_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("Pesquise por sobrenome ou numero de reserva!");
+		lblNewLabel_1.setForeground(new Color(255, 0, 0));
+		lblNewLabel_1.setFont(new Font("Segoe UI", Font.BOLD, 11));
+		lblNewLabel_1.setBounds(565, 184, 346, 13);
+		frmHotelAlura.getContentPane().add(lblNewLabel_1);
 
 	}
 
