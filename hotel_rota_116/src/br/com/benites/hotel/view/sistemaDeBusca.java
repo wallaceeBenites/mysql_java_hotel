@@ -2,6 +2,7 @@ package br.com.benites.hotel.view;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
@@ -24,6 +25,7 @@ import javax.swing.JScrollPane;
 import br.com.benites.hotel.dao.processaMostraTabela;
 import br.com.benites.hotel.dao.processaMostraTabelaPesquisandoNumeroDeReserva;
 import br.com.benites.hotel.dao.processaMostraTabelaPesquisandoSobrenome;
+import br.com.benites.hotel.dao.up_reservas;
 
 public class sistemaDeBusca extends JFrame {
 
@@ -38,6 +40,8 @@ public class sistemaDeBusca extends JFrame {
 	private JTable CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_NUMERO = null;
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
+	processaMostraTabela tabelaReservas66;
+	processaMostraTabela tabelaReservas67;
 
 	public sistemaDeBusca(int id_logado) throws SQLException {
 
@@ -118,10 +122,10 @@ public class sistemaDeBusca extends JFrame {
 
 					if (textField.getText().isEmpty()) {
 
-						processaMostraTabela tabelaReservas66 = new processaMostraTabela();
+						tabelaReservas66 = new processaMostraTabela();
 						scrollPane.setViewportView(tabelaReservas66.mostraTabela());
 
-						processaMostraTabela tabelaReservas67 = new processaMostraTabela();
+						tabelaReservas67 = new processaMostraTabela();
 
 						scrollPane_1.setViewportView(tabelaReservas67.mostraTabela2());
 
@@ -171,6 +175,45 @@ public class sistemaDeBusca extends JFrame {
 		frmHotelAlura.getContentPane().add(btnNewButton_1_1);
 
 		JButton btnNewButton_1_2 = new JButton("EDITAR");
+		btnNewButton_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				try {
+					tabelaReservas67 = new processaMostraTabela();
+					int linhaSelecionada = tabelaReservas67.tableReservas.getSelectedRow();
+				if (linhaSelecionada == -1) {
+		            JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha para editar.");
+		            
+		        }
+				
+				Object[] dadosLinha = new Object[tabelaReservas67.tableReservas.getColumnCount()];
+				for (int i = 0; i < tabelaReservas67.tableReservas.getColumnCount(); i++) {
+		            dadosLinha[i] = tabelaReservas67.tableReservas.getValueAt(linhaSelecionada, i);
+		        }
+				int id = (int) dadosLinha[0];
+				String dataEntrada = (String) dadosLinha[1]; 
+		        String dataSaida = (String) dadosLinha[2];    
+		        String valor = (String) dadosLinha[3];        
+		        String formaPagamento = (String) dadosLinha[4]; 
+		        
+		        up_reservas upadate_dalinha = new up_reservas();
+		        
+		        upadate_dalinha.updateReservas(dataEntrada, dataSaida, valor, formaPagamento, id, id_logado);
+
+		        
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	
+				
+				
+				
+				
+				
+			}
+		});
 		btnNewButton_1_2.setForeground(Color.WHITE);
 		btnNewButton_1_2.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		btnNewButton_1_2.setFocusPainted(false);

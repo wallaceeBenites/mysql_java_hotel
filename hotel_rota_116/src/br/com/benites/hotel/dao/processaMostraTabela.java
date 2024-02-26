@@ -12,10 +12,10 @@ import br.com.benites.hotel.jdbc.ConnectionFactory;
 
 public class processaMostraTabela {
 	
-	private JTable tableReservas;
-	private JTable tableReservas1;
-	private DefaultTableModel model_tabela;
-	private DefaultTableModel model_tabela1;
+	public JTable tableReservas;
+	public JTable tableReservas1;
+	public DefaultTableModel model_tabela;
+	public DefaultTableModel model_tabela1;
 
 	ArrayList<Integer> Id_reserva = new ArrayList<>();
 	ArrayList<String> DATA_ENTRADA = new ArrayList<>();
