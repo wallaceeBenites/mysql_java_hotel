@@ -127,7 +127,6 @@ public class paginaLoguin extends JFrame {
 				try {
 					resiltadoDeBoravalidar = (boolean) boravalidar.validaSenha(textField.getText(), new String(passwordField.getPassword()));
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				

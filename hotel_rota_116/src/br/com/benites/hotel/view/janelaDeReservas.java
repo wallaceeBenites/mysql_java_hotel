@@ -100,7 +100,6 @@ public class janelaDeReservas extends JFrame {
 					frmHotelAlura.dispose();
 					new JanelaDoMenuDoUsuario(id_logado);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -155,7 +154,7 @@ public class janelaDeReservas extends JFrame {
 			frmHotelAlura.getContentPane().add(formattedTextField);
 
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -167,7 +166,7 @@ public class janelaDeReservas extends JFrame {
 			formattedTextField_1.setBounds(57, 175, 271, 34);
 			frmHotelAlura.getContentPane().add(formattedTextField_1);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -183,7 +182,7 @@ public class janelaDeReservas extends JFrame {
 			frmHotelAlura.getContentPane().add(textField);
 			textField.setColumns(10);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 		
@@ -223,7 +222,7 @@ public class janelaDeReservas extends JFrame {
 				try {
 					resultado_do_incert = (boolean) incert_into.regitraReservas(formattedTextField.getText(),formattedTextField_1.getText(), textField.getText(), tipo_pagamentos, nome_hospede, id_logado);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 

@@ -91,7 +91,7 @@ public class JanelaDoMenuDoUsuario extends JFrame {
 					frmHotelAlura.dispose();
 					new	janelaDeReservas(id_logado);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 					
 				}
@@ -115,7 +115,7 @@ public class JanelaDoMenuDoUsuario extends JFrame {
 				try {
 					new	sistemaDeBusca(id_logado);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+	
 					e1.printStackTrace();
 				}
 			}
@@ -139,7 +139,7 @@ public class JanelaDoMenuDoUsuario extends JFrame {
 				frmHotelAlura.dispose();
 				new	janelaDeRegistroDeHospodes(id_logado);
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 				
 			}
@@ -165,7 +165,7 @@ public class JanelaDoMenuDoUsuario extends JFrame {
 						frmHotelAlura.dispose();
 						new	janelaCriarUsuario(id_logado);
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
+	
 						e1.printStackTrace();
 						
 					}

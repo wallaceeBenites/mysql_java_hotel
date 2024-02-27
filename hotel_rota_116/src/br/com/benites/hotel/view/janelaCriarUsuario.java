@@ -112,7 +112,6 @@ public class janelaCriarUsuario extends JFrame {
 							new String(passwordField.getPassword()), new String(passwordField_1.getPassword()),
 							id_logado);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 
@@ -140,7 +139,6 @@ public class janelaCriarUsuario extends JFrame {
 					frmHotelAlura.dispose();
 					new JanelaDoMenuDoUsuario(id_logado);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 
