@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -152,5 +154,75 @@ public class processaMostraTabela {
 		return tableReservas1;
 
 	}
+	
+	public boolean UptabelaRESERVAS() {
+		
+		try {
+			
+			int linhaSelecionada = tableReservas.getSelectedRow();
+		if (linhaSelecionada == -1) {
+            
+           
+        }
+		
+		Object[] dadosLinha = new Object[tableReservas.getColumnCount()];
+		for (int i = 0; i < tableReservas.getColumnCount(); i++) {
+            dadosLinha[i] = tableReservas.getValueAt(linhaSelecionada, i);
+        }
+		int id = (int) dadosLinha[0];
+		String dataEntrada = (String) dadosLinha[1]; 
+        String dataSaida = (String) dadosLinha[2];    
+        String valor = (String) dadosLinha[3];        
+        String formaPagamento = (String) dadosLinha[4]; 
+        
+        up_reservas upadate_dalinha = new up_reservas();
+        
+        upadate_dalinha.updateReservas(dataEntrada, dataSaida, valor, formaPagamento, id);
+        
+        return true;
+
+        
+		} catch (SQLException e1) {
+		
+			
+			return false;
+		}
+		
+	}
+	
+public boolean deletaRESERVAS() {
+		
+		try {
+			
+			int linhaSelecionada = tableReservas.getSelectedRow();
+		if (linhaSelecionada == -1) {
+	        
+	       
+	    }
+		
+		Object[] dadosLinha = new Object[tableReservas.getColumnCount()];
+		for (int i = 0; i < tableReservas.getColumnCount(); i++) {
+	        dadosLinha[i] = tableReservas.getValueAt(linhaSelecionada, i);
+	    }
+		int id = (int) dadosLinha[0];
+		
+	    
+		deleta_reserva dell = new deleta_reserva();
+		
+		dell.DELL(id);
+		
+	    
+	    return true;
+
+	    
+		} catch (SQLException e1) {
+			
+			
+			return false;
+		}
+			
+		}
+	
+
 
 }

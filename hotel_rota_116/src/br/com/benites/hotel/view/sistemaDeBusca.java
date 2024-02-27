@@ -17,15 +17,13 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-
 import java.awt.Toolkit;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import br.com.benites.hotel.dao.processaMostraTabela;
 import br.com.benites.hotel.dao.processaMostraTabelaPesquisandoNumeroDeReserva;
 import br.com.benites.hotel.dao.processaMostraTabelaPesquisandoSobrenome;
-import br.com.benites.hotel.dao.up_reservas;
+
 
 public class sistemaDeBusca extends JFrame {
 
@@ -34,14 +32,13 @@ public class sistemaDeBusca extends JFrame {
 	private JTextField textField;
 	private processaMostraTabelaPesquisandoSobrenome pesquisasomente_sobrenome = null;
 	private processaMostraTabelaPesquisandoNumeroDeReserva pesquisasomente_numero_de_reserva = null;
-	private JTable CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_SOBRENOME = null;
-	private JTable CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_NUMERO = null;
-	private JTable CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_SOBRENOME = null;
-	private JTable CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_NUMERO = null;
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
-	processaMostraTabela tabelaReservas66;
-	processaMostraTabela tabelaReservas67;
+	private processaMostraTabela tabelaReservas66;
+	private boolean condMostroutabela1 = false;
+	private boolean condMostroutabela2 = false;
+	private boolean condMostroutabela3 = false;
+	
 
 	public sistemaDeBusca(int id_logado) throws SQLException {
 
@@ -106,42 +103,48 @@ public class sistemaDeBusca extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				System.out.println("TESTANDO TEXFILED" + textField.getText());
+				condMostroutabela1 = false;
+				condMostroutabela2 = false;
+				condMostroutabela3 = false;
 
 				try {
-					pesquisasomente_sobrenome = new processaMostraTabelaPesquisandoSobrenome();
-					CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_SOBRENOME = pesquisasomente_sobrenome
-							.mostraTabelaPesquisada1(textField.getText());
-					CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_SOBRENOME = pesquisasomente_sobrenome
-							.mostraTabelaPesquisada2(textField.getText());
+					
+					 
 
-					pesquisasomente_numero_de_reserva = new processaMostraTabelaPesquisandoNumeroDeReserva();
-					CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_NUMERO = pesquisasomente_numero_de_reserva
-							.mostraTabelaPesquisada1(textField.getText());
-					CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_NUMERO = pesquisasomente_numero_de_reserva
-							.mostraTabelaPesquisada2(textField.getText());
-
+					
 					if (textField.getText().isEmpty()) {
 
 						tabelaReservas66 = new processaMostraTabela();
 						scrollPane.setViewportView(tabelaReservas66.mostraTabela());
-
-						tabelaReservas67 = new processaMostraTabela();
-
-						scrollPane_1.setViewportView(tabelaReservas67.mostraTabela2());
+						scrollPane_1.setViewportView(tabelaReservas66.mostraTabela2());
+						
+						condMostroutabela1 = true;
 
 					} else {
-
+						
+						
+						
 						try {
+							
+							
+							
 							int numeroInteiro_id_reserva = Integer.parseInt(textField.getText());
 
-							scrollPane.setViewportView(CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_NUMERO);
-							scrollPane_1.setViewportView(CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_NUMERO);
+							pesquisasomente_numero_de_reserva = new processaMostraTabelaPesquisandoNumeroDeReserva(textField.getText());
+							scrollPane.setViewportView(pesquisasomente_numero_de_reserva.mostraTabelaPesquisada1());
+							scrollPane_1.setViewportView(pesquisasomente_numero_de_reserva.mostraTabelaPesquisada2());
 
 							System.out.println("é numero " + numeroInteiro_id_reserva);
+							
+							condMostroutabela2 = true;
 
 						} catch (NumberFormatException x) {
-							scrollPane.setViewportView(CONDICIONAL_PARA_MOSTRA_tABELA_RESERVA_PELO_SOBRENOME);
-							scrollPane_1.setViewportView(CONDICIONAL_PARA_MOSTRA_tABELA_HOSPEDES_PELO_SOBRENOME);
+							
+							pesquisasomente_sobrenome = new processaMostraTabelaPesquisandoSobrenome(textField.getText());
+							scrollPane.setViewportView(pesquisasomente_sobrenome.mostraTabelaPesquisada1());
+							scrollPane_1.setViewportView(pesquisasomente_sobrenome.mostraTabelaPesquisada2());
+							
+							condMostroutabela3 = true;
 						}
 
 					}
@@ -165,6 +168,32 @@ public class sistemaDeBusca extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("DELETAR");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+				if(condMostroutabela1){
+					tabelaReservas66.deletaRESERVAS();
+					 JOptionPane.showMessageDialog(null, "Reserva Deletada com Sucesso");
+					 
+					 condMostroutabela1 = false;
+				};
+				
+				if(condMostroutabela2){
+					pesquisasomente_numero_de_reserva.deletaRESERVAS();
+					 JOptionPane.showMessageDialog(null, "Reserva Deletada com Sucesso");
+					condMostroutabela2 = false;
+				};
+				
+				if(condMostroutabela3){
+				pesquisasomente_sobrenome.deletaRESERVAS();
+				 JOptionPane.showMessageDialog(null, "Reserva Deletada com Sucesso");
+					condMostroutabela3 = false;
+				};
+				
+				
+				
+				
+				
+				
 			}
 		});
 		btnNewButton_1_1.setForeground(Color.WHITE);
@@ -178,36 +207,25 @@ public class sistemaDeBusca extends JFrame {
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				if(condMostroutabela1){
+					tabelaReservas66.UptabelaRESERVAS();
+					 JOptionPane.showMessageDialog(null, "Edição feita com sucesso");
+					 
+					 condMostroutabela1 = false;
+				};
 				
-				try {
-					tabelaReservas67 = new processaMostraTabela();
-					int linhaSelecionada = tabelaReservas67.tableReservas.getSelectedRow();
-				if (linhaSelecionada == -1) {
-		            JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha para editar.");
-		            
-		        }
+				if(condMostroutabela2){
+					pesquisasomente_numero_de_reserva.UptabelaRESERVAS();
+					JOptionPane.showMessageDialog(null, "Edição feita com sucesso");
+					condMostroutabela2 = false;
+				};
 				
-				Object[] dadosLinha = new Object[tabelaReservas67.tableReservas.getColumnCount()];
-				for (int i = 0; i < tabelaReservas67.tableReservas.getColumnCount(); i++) {
-		            dadosLinha[i] = tabelaReservas67.tableReservas.getValueAt(linhaSelecionada, i);
-		        }
-				int id = (int) dadosLinha[0];
-				String dataEntrada = (String) dadosLinha[1]; 
-		        String dataSaida = (String) dadosLinha[2];    
-		        String valor = (String) dadosLinha[3];        
-		        String formaPagamento = (String) dadosLinha[4]; 
-		        
-		        up_reservas upadate_dalinha = new up_reservas();
-		        
-		        upadate_dalinha.updateReservas(dataEntrada, dataSaida, valor, formaPagamento, id, id_logado);
-
-		        
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-	
-				
+				if(condMostroutabela3){
+				pesquisasomente_sobrenome.UptabelaRESERVAS();
+					JOptionPane.showMessageDialog(null, "Edição feita com sucesso");
+					condMostroutabela3 = false;
+				};
+		
 				
 				
 				
