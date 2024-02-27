@@ -8,6 +8,8 @@ public class TestaView {
 		
 		MenuPrincipal.main(args);
 
+		System.out.println("INICIO DE TUDO");
+
 	}
 
 }
