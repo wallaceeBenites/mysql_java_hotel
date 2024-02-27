@@ -1,23 +1,23 @@
 # SISTEMA DE RESERVAS DE HOTEL  | ONE - Oracle Next Education | Challenge Back End Java - HOTEL 
- Status : Concluido ! 
+ Situação: Concluído! 
 
 ## Sobre o Projeto
 ---
 - Resultado do Challenge Back End Java da ONE - Oracle Next Education
 - Sistema de reservas de hotel 
 ## Funcionalidades 
-#####  Loguin  
-- Permite que o gerente crie usuarios novos usuarios
-- O loguin do gerente é o uncio que pode criar novos usuarios, usuario com cargo funcionario não terão a funcionalidade de criar novos usuarios
-- as informações do usuarios serão mostradas assim que o loguin for efetuado, mostrando nome e cargo
-- quando funcionario estiver logado todos os registro que forem criados por ele serão automaticamente vinculados ao usuario logado, Ex : funcionario abriu um reserva, na linha da reserva tera o nome do funcionario que a criou
-#####  Registrar Hospedes e Criar reserva : 
-- Permite o usuario cadastrar Hospedes e criar reservas, ao cadastrar um hospede, esse hospede ja estara disponivel para se vinculado ao uma reserva que eventualmente possa ser criada
-- todos os locais de preenchimento estão com mascaras e formatações para que chegue no banco de dados informações mais padronizadas possiveis 
-#####  Pesquisar : 
-- permite vizualisar os hospedes registrados e as reservas com todas as suas informações 
-- permite que seja pesquisadas por padrão defout ou caso queira pode pesquisar tanto hospedes tanto reversa pelo sobrenome do hospedes, alem de poder pesquisar usando o numero da reserva
-- permite a edição ou exlusão de informações selecionando ela e clicando nos botões editar ou deletar.  
+#####  Login  
+- Permite que o gerente crie usuários novos usuários
+- O login do GERENTE é o único que pode criar novos usuários, usuário com cargo FUNCIONÁRIO não terão a funcionalidade de criar novos usuários
+- As informações do usuário serão mostradas assim que o login for efetuado, mostrando nome e cargo
+- Quando funcionário estiver logado todos os registro que forem criados por ele serão automaticamente vinculados ao usuário logado, Ex: funcionário abriu um reserva, na linha da reserva tera o nome do funcionário que a criou
+#####  Registrar Hóspedes e Criar reserva: 
+- Permite o usuário cadastrar Hóspedes e criar reservas, ao cadastrar um hóspede, esse hospede já estará disponível para se vinculado ao uma reserva que eventualmente possa ser criada
+- Todos os locais de preenchimento estão com máscaras de formatações, para poder chegar no banco de dados informações mais padronizadas possíveis   
+#####  Pesquisar: 
+- Permite visualizar os hóspedes registrados e as reservas com todas as suas informações 
+  Permite que seja pesquisada por padrão default ou caso queira pode pesquisar tanto hóspedes tanto reversa pelo sobrenome do hóspede, além de poder, pesquisar usando o número da reserva
+- Permite a edição ou exclusão de informações, selecionando ela e clicando nos botões editar ou deletar.  
 
 
  ## Principais tecnologias utilizadas
@@ -37,29 +37,21 @@
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
-♦ Tela de Loguin
+♦ Tela de Login
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
-♦ Tela do GERENTE mostrando Nome , Cargo e a opção Criar Novo Usuario
+♦ Tela do GERENTE mostrando Nome, Cargo e a opção Criar Novo Usuário
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
-♦ Tela do FUNCIONARIO mostrando Nome , Cargo mas sem a opção de Criar Novo Usuario
-<p align="center" >
-     <img width="600" heigth="600" src="">
-</p>
-
-
-♦ No caso de escolher :  Criar Novo Usuario  
+♦ Tela do FUNCIONÁRIO mostrando Nome, Cargo, mas sem a opção de Criar Novo Usuário
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
 
-<p align="center" >
-     <img width="600" heigth="600" src="">
-</p>
-♦ No caso de escolher :  Registro de hóspedes
+
+♦ No caso de escolher: Criar Novo Usuário  
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
@@ -67,7 +59,7 @@
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
-♦ No caso de escolher :   Registro de reservas 
+♦ No caso de escolher: Registro de hóspedes
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
@@ -75,7 +67,15 @@
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
-♦ No caso de escolher :  Buscar 
+♦ No caso de escolher:   Registro de reservas 
+<p align="center" >
+     <img width="600" heigth="600" src="">
+</p>
+
+<p align="center" >
+     <img width="600" heigth="600" src="">
+</p>
+♦ No caso de escolher: Buscar 
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
@@ -85,7 +85,7 @@
 </p>
 
 
-♦ Resposta ao buscar por:  defout 
+♦ Resposta ao buscar por: Default 
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
@@ -94,7 +94,7 @@
      <img width="600" heigth="600" src="">
 </p>
 
-♦ Resposta ao buscar por:  Sobrenome 
+♦ Resposta ao buscar por: Sobrenome 
 <p align="center" >
      <img width="600" heigth="600" src="">
 </p>
@@ -123,7 +123,7 @@
      <img width="600" heigth="600" src="">
 </p>
 
-- Todo banco esta disponivel nos arquivos 
+- Todo banco esta disponível nos arquivos 
 
 
 
@@ -133,4 +133,3 @@ Badge pela Conclusão do Desafio
 <p align="center" >
 <img src="">
 </p>
-Inicio de projeto 
