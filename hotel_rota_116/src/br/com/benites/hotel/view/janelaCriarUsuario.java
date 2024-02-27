@@ -100,7 +100,7 @@ public class janelaCriarUsuario extends JFrame {
 		passwordField_1.setBounds(535, 338, 317, 34);
 		frmHotelAlura.getContentPane().add(passwordField_1);
 
-		JButton btnNewButton_1 = new JButton("CRIAR CONTA");
+		JButton btnNewButton_1 = new JButton("CRIAR");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

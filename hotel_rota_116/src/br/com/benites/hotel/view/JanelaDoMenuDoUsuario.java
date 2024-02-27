@@ -156,7 +156,7 @@ public class JanelaDoMenuDoUsuario extends JFrame {
 		btnNewButton_2.setBounds(36, 325, 188, 49);
 		frmHotelAlura.getContentPane().add(btnNewButton_2);
 		
-//		if(id_categoria_do_usuario_logado == 1) {
+	if(id_categoria_do_usuario_logado == 1) {
 			JButton btnNewButton_3 = new JButton("Criar Novo Usuario");
 			btnNewButton_3.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -172,6 +172,8 @@ public class JanelaDoMenuDoUsuario extends JFrame {
 					
 				}
 			});
+	
+			
 		btnNewButton_3.setIcon(new ImageIcon(JanelaDoMenuDoUsuario.class.getResource("/img/icon-reservas.png")));
 		btnNewButton_3.setOpaque(false);
 		btnNewButton_3.setHorizontalAlignment(SwingConstants.LEADING);
@@ -182,7 +184,7 @@ public class JanelaDoMenuDoUsuario extends JFrame {
 		btnNewButton_3.setBackground(SystemColor.desktop);
 		btnNewButton_3.setBounds(36, 376, 188, 49);
 		frmHotelAlura.getContentPane().add(btnNewButton_3);
-//		}
+		}
 		
 		
 		
