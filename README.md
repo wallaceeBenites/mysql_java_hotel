@@ -133,7 +133,7 @@
 
 Badge pela Conclusão do Desafio
 ---
-► link aqui
+► https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F10224%2F1677509014Prancheta_1.png?utm_campaign=alura_latam_-_challenge_email_projeto_6_br&utm_medium=email&utm_source=RD+Station
 <p align="center" >
-<img src="hotel_rota_116/src/img/">
+<img src="hotel_rota_116/src/img/bedge.png">
 </p>
