@@ -115,8 +115,9 @@
 <p align="center" >
      <img width="600" heigth="600" src="hotel_rota_116/src/img/salva_exclusao.png">
 </p>
+
 ## Informações sobre o Banco de Dados 
----
+
 ♦ Modelo Conceitual
 <p align="center" >
      <img width="600" heigth="600" src="hotel_rota_116/src/img/modelo_conceito.png">
